@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>创建实例</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    
+    <div id="app">{{ a }};</div>
+    
+    <script>
+    // 插值表达式 {{}} ，可以在div里面进行计算
+    // $nextTick 函数 让dom操作完之后，立刻进行 视图更新
+   var demo = new Vue({
+        el: '#app',//element 代表选中要挂载的目标
+        data: {
+            a:10,
+        }
+      })
+
+    // 可以代替 el: '#app'这条语句
+    demo.$mount('#app');
+
+      demo.a = 20;
+     
+      console.log(demo.a);//20
+    //美元符号$，可以调用属性+方法 。
+    // 数据改变是同步的， 视图的更新 是异步的。
+      console.log(demo.$el.innerHTML);//10  
+      demo.$nextTick(()=>{
+          console.log(demo.$el.innerHTML);// 20
+      })
+
+    // 可以代替 el: '#app'这条语句
+      demo.$mount('#app');
+    </script>
+
+</body>
+</html>
