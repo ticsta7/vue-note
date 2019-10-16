@@ -16,10 +16,6 @@
       <!--  详见： https://cn.vuejs.org/v2/guide/class-and-style.html#%E7%BB%91%E5%AE%9A%E5%86%85%E8%81%94%E6%A0%B7%E5%BC%8F -->
       <img v-bind:src="imgUrl" v-bind:alt="name" :style="">
      
-     
-     
-     
-     
       <!-- 绑定class， 当多个class的时候，用数组 
           也可以用对象，{}-->
       <h4 :class="[redClass, widthClass]">{{name}}</h4>
@@ -29,11 +25,7 @@
       <!-- 甚至可以数组包裹对象 ，然后再额外固定一个class -->
       <h4 :class='[{red:isRed},widthClass]' class="example">{{name}}</h4>
     
-    
-    
-    
     </div>
-    
     <script>
     
    var demo = new Vue({
