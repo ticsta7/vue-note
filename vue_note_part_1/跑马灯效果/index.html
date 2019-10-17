@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>跑马灯效果</title>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.common.dev.js"></script>
+</head>
+<body>
+    <div id = 'app' >
+        <input type="button" value="start" @click='start'>
+        <input type="button" value="stop"  @click='stop'>
+        <h4> {{ msg }}</h4>
+    
+    </div>
+    
+    <script>
+        //拖地，线头 
+        //在vm实例中如果想要获取data（methods）中的数据(方法)，必须前缀this.
+        //这个this 指向的是 new出来的实例（下面的vm）
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'跑马灯效果demo',
+                inrervalId:null //定义inrervalId，并且赋空值
+            },
+            //es6写法 ’函数名（）‘  
+            //箭头函数，内外this相同
+            methods:{
+                  start(){
+                    if(this.inrervalId != null) return
+                    this.inrervalId = setInterval(() => {
+                    var headLetter = this.msg.substring(0,1)
+                    var endLetter = this.msg.substring(1)
+                    this.msg = endLetter + headLetter    
+                    },500)
+                    }, 
+
+                  stop(){
+                    clearInterval(this.inrervalId)
+                    this.inrervalId = null
+                  }
+            }
+            // methods:{
+            //       start:function(){
+
+            //       }  ,
+            //       stop:function(){
+
+            //       }
+            // }
+        })
+ 
+    </script>
+</body> 
+</html>
