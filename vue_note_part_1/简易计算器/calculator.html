@@ -23,10 +23,7 @@
         <input type="text" v-model='result'>
     </div>
 
-
-
 <script>
-
     var vm = new Vue({
         el:'#app',
         data:{
@@ -35,7 +32,7 @@
             result:'0',
             sym:'+'
         },
-        methods:{
+        methods:{  
             calcu(){
                 switch(this.sym){
                     case '+':this.result = parseInt(this.num1) + parseInt(this.num2);
