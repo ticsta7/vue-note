@@ -11,7 +11,7 @@
     <div id = 'app' >
         <input type="button" value="start" @click='start'>
         <input type="button" value="stop"  @click='stop'>
-        <h4> {{ msg }}</h4>
+        <h4> {{ msg }} </h4>
     
     </div>
     
@@ -27,6 +27,7 @@
             },
             //es6写法 ’函数名（）‘  
             //箭头函数，内外this相同
+            
             methods:{
                   start(){
                     if(this.inrervalId != null) return
@@ -42,14 +43,7 @@
                     this.inrervalId = null
                   }
             }
-            // methods:{
-            //       start:function(){
-
-            //       }  ,
-            //       stop:function(){
-
-            //       }
-            // }
+            
         })
  
     </script>
