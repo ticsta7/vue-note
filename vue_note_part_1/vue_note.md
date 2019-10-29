@@ -315,3 +315,45 @@ data: {
 
 `<div v-bind:style="[baseStyles, overridingStyles]"></div>
 `
+## v-for
+
+
+```JS
+ data: {
+    list: ["a", "b", "c", "d", "1", 3, 2],
+    objList: [
+     { order: 1, name: "tic1" },
+     { order: 2, name: "tic2" },
+     { order: 3, name: "tic3" }
+             ],
+             
+    objExample: {
+     id: 7,
+     name: "tic7",
+     sex: "male",
+     age: "22",
+     test:'true'
+             }
+    }
+```
+1.迭代数组<br>`<p v-for="test in list">{{ test }}</p>`<br>
+2.迭代数组，带索引（第二个参数）<br>`<p v-for="(test,adsf) in list">{{ adsf }}---{{ test }}</p>`<br>
+3.迭代对象数组 ，可以单独读取指定的属性<br>` <p v-for="item in objList">{{ item.order }}---{{ item.name }}</p>`<br>
+4.迭代对象数组 带索引<br>`<p v-for="(item,i) in objList">
+ {{ i }}-order:{{ item.order }}-{{ item.name }}</p>`<br>
+5.迭代对象<br>可单独写value，第二个参数是key，可自定义，如ttt（也有索引，没写)<br>`<p v-for="(value,key) in objExample">{{ key }}:{{ value }}</p>`<br>
+6.数字 <br>in后面还能写数字 (这次不是0开始，是1开始）<br>`<p v-for="cccc in 10">{{ cccc }}</p>`<br>
+7. v-for在组件中使用，必须v-bind:key,而且必须为num/string类型 
+`<p v-for="item in objList" :key='item.id'>{{ item.order }}---{{ item.name }}</p>`<br>这里的id是唯一的，且是数字类型
+
+## v-show,v-if
+
+```
+data：{value:true}
+```
+v-if根据值 决定是否渲染，值改变 则重新创建或删除元素<br>v-show只是切换css display属性
+<br>
+`<p v-if="value">{{ test }}</p>`
+`<p v-show="value">{{ test }}</p>`
+<br>v-if，高切换性能消耗<br>v-show高渲初始染消耗<br>
+so，如果元素频繁切换，还是别用v-if，用v-show

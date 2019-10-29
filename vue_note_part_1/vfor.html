@@ -19,7 +19,7 @@
       <p v-for="(item,i) in objList">
         索引{{ i }}---order:{{ item.order }}---{{ item.name }}
       </p>
-      <!--迭代对象 （也有索引，没写） -->
+      <!--迭代对象 可以单独写value，第二个参数是key，也可自定义，例如ttt（也有索引，没写） -->
       <p v-for="(value,key) in objExample">{{ key }}:{{ value }}</p>
       <!-- in后面还能方数字 (这次不是0开始，是1开始）-->
       <p v-for="cccc in 10">{{ cccc }}</p>
@@ -39,7 +39,8 @@
             id: 7,
             name: "tic7",
             sex: "male",
-            age: "22"
+            age: "22",
+            test:'true'
           }
         }
       });
