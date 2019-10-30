@@ -344,7 +344,7 @@ data: {
 5.迭代对象<br>可单独写value，第二个参数是key，可自定义，如ttt（也有索引，没写)<br>`<p v-for="(value,key) in objExample">{{ key }}:{{ value }}</p>`<br>
 6.数字 <br>in后面还能写数字 (这次不是0开始，是1开始）<br>`<p v-for="cccc in 10">{{ cccc }}</p>`<br>
 7. v-for在组件中使用，必须v-bind:key,而且必须为num/string类型 
-`<p v-for="item in objList" :key='item.id'>{{ item.order }}---{{ item.name }}</p>`<br>这里的id是唯一的，且是数字类型
+`<p v-for="item in objList" :key='item.id'>{{ item.order }}---{{ item.name }}</p>`<br>这里的id是唯一的，且是数字类型。 
 
 ## v-show,v-if
 
