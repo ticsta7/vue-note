@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>品牌列表实例</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+    
+    <div class="panel panel-primary">
+          <div class="panel-heading">
+                <h3 class="panel-title"> 品牌添加 </h3>
+          </div>
+          <div class="panel-body form-inline  ">
+               
+                <label>
+                    ID:  <input type="text" class="form-control" v-model='id'>
+                </label>
+
+                <label>
+                    NAME: <input type="text" class="form-control" v-model='name'>
+                </label>
+
+                <input type="button" value="ADD" class="btn btn-primary" @click='add'>
+
+          </div>
+    </div>
+        
+
+    <table class="table table-bordered table-hover table-striped ">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                 <th>addTime</th>
+                <th>operation</th> 
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for='item in list' :key='item.id'>
+                <td>{{ item.id }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.addTime }}</td>
+                <td><a href="">  delete  </a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+    <script>
+    
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            id:'',
+            name:'',
+            test:'1',
+            list:[
+                { id:1, name:'benz', addTime:new Date() },
+                { id:2, name:'audi', addTime:new Date() }
+                ]
+        },
+        methods:{
+            add(){
+                var car = { id: this.id, name: this.name ,addTime:new Date()};
+                this.list.push(car);
+
+                // push 之后，清空输入框
+                this.name = this.id = '';
+                
+                
+            }  
+        }
+
+
+    })
+    
+    </script>
+
+
+</body>
+</html>
