@@ -44,7 +44,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr v-for='item in list' :key='item.id'>
+            <tr v-for='item in sear(keyWord )' :key='item.id'>
                 <td>{{ item.id }}</td>
                 <td>{{ item.name }}</td>
                 <td>{{ item.addTime }}</td>
@@ -62,11 +62,11 @@
             id:'',
             name:'',
             test:'1',
+            keyWord:'',
             list:[
                 { id:1, name:'benz', addTime:new Date() },
                 { id:2, name:'audi', addTime:new Date() }
-                ],
-            keyWord:''
+                ]
         },
         methods:{
             add(){
@@ -94,9 +94,18 @@
                 //         return true ;
                 //     }
                 // })   
+            },
+            sear(){
+                var newList = [];
+                this.list.forEach(item => {
+                    if(item.name.indexOf(this.keyWord) != -1){
+                        newList.push(item)
+                    }                    
+                })
+                return newList
             }
         }
-
+        
     })
     
     </script>
