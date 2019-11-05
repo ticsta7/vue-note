@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>品牌列表实例</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="../vue.js"></script>
     <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.css" rel="stylesheet">
 </head>
 <body>
@@ -27,6 +27,9 @@
 
                 <input type="button" value="ADD" class="btn btn-primary" @click='add'>
 
+                <label>
+                   搜索: <input type="text" class="form-control" v-model='keyWord' placeholder="请输入关键字">
+                </label>
           </div>
     </div>
         
@@ -62,7 +65,8 @@
             list:[
                 { id:1, name:'benz', addTime:new Date() },
                 { id:2, name:'audi', addTime:new Date() }
-                ]
+                ],
+            keyWord:''
         },
         methods:{
             add(){
