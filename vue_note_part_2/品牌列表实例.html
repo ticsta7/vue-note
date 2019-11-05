@@ -45,7 +45,7 @@
                 <td>{{ item.id }}</td>
                 <td>{{ item.name }}</td>
                 <td>{{ item.addTime }}</td>
-                <td><a href="">  delete  </a></td>
+                <td><a href="" @click.prevent='del(item.id)' >  delete  </a></td>
             </tr>
         </tbody>
     </table>
@@ -72,9 +72,26 @@
                 // push 之后，清空输入框
                 this.name = this.id = '';
                 
-                
             }  
-        }
+        },
+            del(id){ 
+                //方法2
+                var index = this.list.findIndex(item =>{
+                    if(item.id == id){
+                        return true;
+                    }
+                })
+                console.log(index);
+                
+                 // 方法 1
+                // this.list.some((item,i) => {
+                //     if(item.id == id ){
+                //         this.list.splice(i,1);
+                //         return true ;
+                //     }
+                // })
+                
+            }
 
 
     })
