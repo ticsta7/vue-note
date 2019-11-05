@@ -73,7 +73,7 @@
                 this.name = this.id = '';
                 
             }  
-        },
+        ,
             del(id){ 
                 //方法2
                 var index = this.list.findIndex(item =>{
@@ -81,7 +81,7 @@
                         return true;
                     }
                 })
-                console.log(index);
+                this.list.splice(index,1);
                 
                  // 方法 1
                 // this.list.some((item,i) => {
@@ -89,10 +89,9 @@
                 //         this.list.splice(i,1);
                 //         return true ;
                 //     }
-                // })
-                
+                // })   
             }
-
+        }
 
     })
     
