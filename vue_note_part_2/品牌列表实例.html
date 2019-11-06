@@ -96,13 +96,20 @@
                 // })   
             },
             sear(){
-                var newList = [];
-                this.list.forEach(item => {
-                    if(item.name.indexOf(this.keyWord) != -1){
-                        newList.push(item)
-                    }                    
+                // way 2 
+                 return this.list.filter(item => {
+                    //way 2.1     if(item.name.indexOf(this.keyWord) != -1)
+                    if(item.name.includes(this.keyWord)){return item}
                 })
-                return newList
+
+                //way 1
+                // var newList = [];
+                // this.list.forEach(item => {
+                //     if(item.name.indexOf(this.keyWord) != -1){
+                //         newList.push(item)
+                //     }                    
+                // })
+                // return newList
             }
         }
         
